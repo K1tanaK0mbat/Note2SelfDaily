@@ -3,7 +3,8 @@
 // in the html.
 var saveButtonEl=$(".saveBtn");
 var noteInputEl=$("textarea");
-
+var today=dayjs();
+$('#currentDay').text(today.format('dddd, MMMM D YYYY, h:mm:ss a'))
 
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
@@ -25,6 +26,16 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+var now=dayjs().hour();
+  var eventTime=document.getElementById('#hour');
+  var rowEl=$('.time-block')
+  if (eventTime.isBefore(now)) {
+    rowEl.addClass('past');
+  } else if (eventTime.isSame(now)) {
+    rowEl.addClass('present');
+  } else if(eventTime.isAfter(now)){
+    rowEl.addClass('future')
+  }
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
