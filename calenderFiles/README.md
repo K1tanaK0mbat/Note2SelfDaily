@@ -15,3 +15,28 @@ WHEN I click the save button for that time block
 THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
+
+var now=new Date();
+  var eventTime=$('#hour');
+  var rowEl=$('.row')
+  if (eventTime.isBefore(now)) {
+    rowEl.addClass('past');
+  } else if (eventTime.isSame(now)) {
+    rowEl.addClass('present');
+  } else if(eventTime.isAfter(now)){
+    rowEl.addClass('future')
+  }
+  var eventTime =new Date();
+eventTime.setHours(9);
+var now=dayjs().hour();
+  var rowEl=$('.time-block')
+  if (eventTime.isBefore(now)) {
+    rowEl.addClass('past');
+  } else if (eventTime.isSame(now)) {
+    rowEl.addClass('present');
+  } else if(eventTime.isAfter(now)){
+    rowEl.addClass('future')
+  }
+
+  var hour=dayjs().hour(9).format('hh');
+$('#hour-9').text(hour);

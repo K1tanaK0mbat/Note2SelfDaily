@@ -3,6 +3,16 @@
 // in the html.
 var saveButtonEl=$(".saveBtn");
 var noteInputEl=$("textarea");
+var today=dayjs();
+$('#currentDay').text(today.format('dddd, MMMM D YYYY, h:mm:ss a'))
+
+var hour9=dayjs().hour(9).format('hh');
+$('#hour-9').text(hour9+" AM");
+var hour10=dayjs().hour(10).format('hh');
+$('#hour-10').text(hour10+" AM");
+var hour11=dayjs().hour(11).format('hh');
+$('#hour-11').text(hour11+" AM");
+
 
 
 $(function () {
@@ -25,6 +35,18 @@ $(function () {
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
+
+var now=dayjs().hour();
+var eventTime=dayjs(hour9);
+  var rowEl=$('#hour-9')
+  if (eventTime.isBefore(now)) {
+    rowEl.addClass('past');
+  } else if (eventTime.isSame(now)) {
+    rowEl.addClass('present');
+  } else if(eventTime.isAfter(now)){
+    rowEl.addClass('future')
+  }
+
   //
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
