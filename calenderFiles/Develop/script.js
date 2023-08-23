@@ -25,8 +25,7 @@ $(function () {
 
   saveButtonEl.addEventListener("click", function(event) {
     event.preventDefault();
-    var noteInput=noteInputEl.val();
-    localStorage.setItem("event",noteInput);
+    
 
   });
   
@@ -37,7 +36,7 @@ $(function () {
   // current hour in 24-hour time?
 
 var now=dayjs().hour();
-var eventTime=dayjs(hour9);
+var eventTime=dayjs(hour);
   var rowEl=$('#hour-9')
   if (eventTime.isBefore(now)) {
     rowEl.addClass('past');
@@ -51,6 +50,7 @@ var eventTime=dayjs(hour9);
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
+
   //
-  // TODO: Add code to display the current date in the header of the page.
+ 
 });
