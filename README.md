@@ -19,7 +19,7 @@ For this website, users have to type in the colored text box of each section wha
 To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
     ```md
-    ![alt text](assets/images/screenshot.png)
+   calenderFiles\Assets\Web capture_3-9-2023_163531_.jpeg
     ```
 
 ## Credits
