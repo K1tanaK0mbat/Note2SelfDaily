@@ -54,7 +54,7 @@ $(".time-block").each(function () {
   // attribute of each time-block be used to do this?
 function pullStorage (){
   saveButtonEl.each(function () {
-    var hourId = $(this).siblings(".hour").text();
+    var hourId = $(this).closest(".time-block").attr("id"); // Use DOM traversal to get the "hour-x" ID
     var savedEvent = localStorage.getItem(hourId);
 
     if (savedEvent !== null) {
@@ -63,7 +63,6 @@ function pullStorage (){
 });
 }
 
-// Call the function to load saved input when the page is loaded
 pullStorage();
 
 
