@@ -1,35 +1,46 @@
-    <div id="time-block-1" data-assigned-time="10:30 AM">Time Block 1</div>
-    <div id="time-block-2" data-assigned-time="2:00 PM">Time Block 2</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="row time-block">
+        <div class="col-2 col-md-1 hour text-center py-3">9AM</div>
+        <textarea class="col-8 col-md-10 description" rows="3"></textarea>
+        <button class="btn saveBtn col-2 col-md-1" aria-label="save">
+            <i class="fas fa-save" aria-hidden="true"></i>
+        </button>
+    </div>
+    <!-- Add more time-blocks as needed -->
 
     <script>
         $(document).ready(function () {
-            // Function to compare current time with assigned time
-            function compareTimeWithAssignedTime(blockId) {
-                // Get the current time
-                var currentTime = new Date();
-                var currentHours = currentTime.getHours();
-                var currentMinutes = currentTime.getMinutes();
-
-                // Retrieve the assigned time for the specific time block using its ID
-                var assignedTime = $("#" + blockId).data("assigned-time").split(":");
-                var assignedHours = parseInt(assignedTime[0]);
-                var assignedMinutes = parseInt(assignedTime[1]);
-
-                // Compare the current time with the assigned time
-                if (
-                    currentHours > assignedHours ||
-                    (currentHours === assignedHours && currentMinutes >= assignedMinutes)
-                ) {
-                    alert(blockId + " has passed.");
-                } else {
-                    alert(blockId + " is upcoming.");
+            // Function to load saved input from local storage
+            function loadInputFromLocalStorage($textarea) {
+                var blockId = $textarea.siblings(".hour").text(); // Get the text from the adjacent hour element
+                var savedInput = localStorage.getItem(blockId);
+                if (savedInput !== null) {
+                    $textarea.val(savedInput);
                 }
             }
 
-            // Example usage:
-            compareTimeWithAssignedTime("time-block-1");
-            compareTimeWithAssignedTime("time-block-2");
+            // Loop through all time-blocks and load saved input
+            $(".time-block").each(function () {
+                var $textarea = $(this).find(".description"); // Find the textarea within the time-block
+                loadInputFromLocalStorage($textarea);
+            });
+
+            // Function to save input to local storage when the save button is clicked
+            $(".saveBtn").on("click", function () {
+                var $textarea = $(this).siblings(".description"); // Find the textarea adjacent to the clicked button
+                var blockId = $(this).siblings(".hour").text(); // Get the text from the adjacent hour element
+                var inputText = $textarea.val();
+                localStorage.setItem(blockId, inputText);
+            });
         });
     </script>
+</body>
+</html>
+
 
     
