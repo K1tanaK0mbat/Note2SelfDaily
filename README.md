@@ -16,10 +16,8 @@ The purpose of this website is to provide users with a digital planner that'll s
 
 For this website, users have to type in the colored text box of each section what tasks they have to complete for each specific hour. Then click the save icon on the end of the box to save your input. There should be a message it was saved. When you refresh, the entry should still be present. To clear your input, delete current text and add your new task. If you want it to stay empty, clear and then click save. The date and time will be visible at the top of the page. Blue= past/before time, Pink= present/ same as time, Purple=future/ after time.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
-```md
-![website still](calenderFiles\Assets\Web capture_3-9-2023_163531_.jpeg)
-```
+![Web capture_3-9-2023_163531_](https://github.com/K1tanaK0mbat/Note2SelfDaily/assets/134855189/4b252fb2-bdf7-4be8-a82e-cd63e6ac2ca6)
+
 ## Credits
 
 Receieved assistance from Chat GPT on one section of code, as shown in Code.doc within the repo.
