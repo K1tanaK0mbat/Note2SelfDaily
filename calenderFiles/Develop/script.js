@@ -4,7 +4,7 @@
 var saveButtonEl=$(".saveBtn");
 var today=dayjs();
 $('#currentDay').text(today.format('dddd, MMMM D YYYY, h:mm:ss a'))
-
+var message = $("#message")
 
 
 
@@ -20,6 +20,10 @@ $(document).ready(function () {
   var hourId = $(this).closest(".time-block").attr("id");
   var Event = $(this).siblings("textarea").val();
   localStorage.setItem(hourId, Event);
+  message.removeClass("Invisible");
+  setTimeout(function () {
+      message.addClass("Invisible");
+  }, 900);
   });
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -59,6 +63,7 @@ function pullStorage (){
 
     if (savedEvent !== null) {
         $(this).siblings("textarea").val(savedEvent);
+
     }
 });
 }

@@ -64,3 +64,21 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+#message {
+  color: #d484e8;
+  text-align: center;
+  font-size: 20px;
+}
+
+.Invisible {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#message::after{
+  content:"Local Storage";
+color:rgb(107, 21, 227);
+letter-spacing: 2px;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
