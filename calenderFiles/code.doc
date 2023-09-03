@@ -1,0 +1,35 @@
+    <div id="time-block-1" data-assigned-time="10:30 AM">Time Block 1</div>
+    <div id="time-block-2" data-assigned-time="2:00 PM">Time Block 2</div>
+
+    <script>
+        $(document).ready(function () {
+            // Function to compare current time with assigned time
+            function compareTimeWithAssignedTime(blockId) {
+                // Get the current time
+                var currentTime = new Date();
+                var currentHours = currentTime.getHours();
+                var currentMinutes = currentTime.getMinutes();
+
+                // Retrieve the assigned time for the specific time block using its ID
+                var assignedTime = $("#" + blockId).data("assigned-time").split(":");
+                var assignedHours = parseInt(assignedTime[0]);
+                var assignedMinutes = parseInt(assignedTime[1]);
+
+                // Compare the current time with the assigned time
+                if (
+                    currentHours > assignedHours ||
+                    (currentHours === assignedHours && currentMinutes >= assignedMinutes)
+                ) {
+                    alert(blockId + " has passed.");
+                } else {
+                    alert(blockId + " is upcoming.");
+                }
+            }
+
+            // Example usage:
+            compareTimeWithAssignedTime("time-block-1");
+            compareTimeWithAssignedTime("time-block-2");
+        });
+    </script>
+
+    
